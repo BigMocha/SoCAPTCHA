@@ -1,0 +1,219 @@
+/* Base Styles */
+:root {
+    --primary-color: #4a6bff;
+    --primary-hover: #3a5bef;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --border-color: #ddd;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.captcha-container {
+    text-align: center;
+}
+
+.captcha-instructions {
+    margin-bottom: 2rem;
+}
+
+.captcha-instructions p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    margin: 0.5rem 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Audio Controls */
+.audio-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.beat-player, .record-section, .playback-section, .submit-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.visualizer {
+    width: 100%;
+    height: 60px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    margin-top: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.visualizer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--primary-color) 0%, transparent 100%);
+    transform: translateX(-100%);
+    animation: progress 5s linear infinite;
+}
+
+@keyframes progress {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Recording Status */
+.recording-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0.5rem;
+    color: var(--danger-color);
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.recording-status.recording {
+    opacity: 1;
+}
+
+.pulse {
+    width: 12px;
+    height: 12px;
+    background-color: var(--danger-color);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 1; }
+    70% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(0.95); opacity: 1; }
+}
+
+/* Feedback */
+.feedback {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    display: none;
+}
+
+.feedback.success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
+    border: 1px solid rgba(40, 167, 69, 0.3);
+    display: block;
+}
+
+.feedback.error {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    display: block;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: #666;
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+    }
+}
