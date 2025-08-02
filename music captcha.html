@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Captcha System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Music Captcha</h1>
+        <div class="captcha-container">
+            <div class="captcha-instructions">
+                <p>Listen to the beat, then record yourself humming it back</p>
+            </div>
+            
+            <div class="audio-controls">
+                <div class="beat-player">
+                    <button id="playButton" class="btn">
+                        <span class="icon">▶️</span>
+                        <span class="text">Play Beat</span>
+                    </button>
+                    <div id="audioVisualizer" class="visualizer"></div>
+                </div>
+                
+                <div class="record-section">
+                    <button id="recordButton" class="btn">
+                        <span class="icon">🎤</span>
+                        <span class="text">Record Your Hum</span>
+                    </button>
+                    <div id="recordingStatus" class="recording-status">
+                        <div class="pulse"></div>
+                        <span>00:00</span>
+                    </div>
+                </div>
+                
+                <div class="playback-section">
+                    <button id="playbackButton" class="btn" disabled>
+                        <span class="icon">🔊</span>
+                        <span class="text">Play Recording</span>
+                    </button>
+                </div>
+                
+                <div class="submit-section">
+                    <button id="submitButton" class="btn primary" disabled>
+                        <span class="icon">✅</span>
+                        <span class="text">Verify</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="feedback" class="feedback"></div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Having trouble? <a href="#" id="newBeat">Try a different beat</a></p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
